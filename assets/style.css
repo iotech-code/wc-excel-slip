@@ -1,0 +1,25 @@
+.options_area {
+    background: #eee;
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+    max-width: 940px;
+}
+a.view.download {
+    background-color: #1d1d1d;
+    border-color: transparent !important;
+}
+a.view.download::after {
+    background-image: url(icon-16.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    content: "" !important;
+}
+#adminmenu div.wp-menu-image img {
+    width: 16px;
+    opacity: 1;
+    margin-top: -4px;
+}
+sup, sub {
+    color: #aaa;
+}

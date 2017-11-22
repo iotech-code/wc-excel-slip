@@ -1,0 +1,15 @@
+{
+    "name": "iotech/wc-excel-slip",
+    "description": "Woocommerce Order Slip in Excel format",
+    "type": "wordpress-plugin",
+    "license": "GPL2",
+    "authors": [
+        {
+            "name": "iOTech Company",
+            "email": "developer@iotech.co.th"
+        }
+    ],
+    "require": {
+        "phpoffice/phpexcel": "^1.8"
+    }
+}
