@@ -12,6 +12,8 @@ You can edit your own template by clone the */templates/default* folder to new f
 
 
 **Installation**
+
+***If you are developer.***
 - Download the plugin from here and extract plugin file.
 - Open terminal on MacOS or Dos on Windows and goto extracted file location.
 - Run composer install command to install plugin dependencys.
@@ -22,6 +24,14 @@ You can edit your own template by clone the */templates/default* folder to new f
 - Click on the Install now button.
 - Click on the Activate Plugin link to start using the plugin.
 
+
+***If you are user.***
+- [Download file frome here](https://github.com/iotech-thailand/wc-excel-slip/raw/master/files/wc-excel-slip.zip)
+- Go to your WordPress admin area and click on Plugins » Add New.
+- Click on the Upload Plugin button on top of the page.
+- Click on the choose file button and select the wc-excel-slip.zip file from your computer.
+- Click on the Install now button.
+- Click on the Activate Plugin link to start using the plugin.
 
 **Screenshot**
 
