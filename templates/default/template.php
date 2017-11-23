@@ -6,7 +6,8 @@ author_url: https://iotech.co.th
 version: 1.0
  */
 
-include( plugin_dir . 'vendor/php-report/PHPReport.php' );
+ // Must import this file.
+include( plugin_dir . 'includes/PHPReport.php' );
 
 //which template to use
 $template='invoice.xls';
