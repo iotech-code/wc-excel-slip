@@ -1,13 +1,10 @@
 
-![plugin logo](https://iotech.co.th/wp-content/uploads/2017/admin-icon.png) 
+![plugin logo](https://iotech.co.th/wp-content/uploads/2017/11/wcxs.png) 
 
-
-**WC Excel Slip**
 ------------
+
 Wordpress plugin written by [In and Out Technology Company](https://iotech.co.th)
-
 This plugin will generate output file as .xls format.
-
 You can edit your own template by clone the */templates/default* folder to new folder and change design in *invoice.xls* file.
 
 
@@ -47,6 +44,7 @@ You can edit your own template by clone the */templates/default* folder to new f
 **Contribute**
 
 Contributions are welcome you can fork this repository to your repository.
+Please read this [contribute guide](https://github.com/iotech-thailand/wc-excel-slip/blob/master/CONTRIBUTING.md)
 
 
 **Any question for developer**
