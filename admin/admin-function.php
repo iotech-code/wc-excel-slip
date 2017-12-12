@@ -2,7 +2,7 @@
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 new WC_Excel_Common;
-class WC_Excel_Common {
+class WC_Excel_Common  extends WC_Excel{
     
     function __construct() {
         add_action( 'wp_ajax_excel_slip', array( $this,  'excel_slip' ) );
@@ -17,7 +17,7 @@ class WC_Excel_Common {
     
     function excel_slip() {
         if(!empty($_GET['order_id'])) {
-            include( plugin_dir . 'includes/template_functions.php' );
+            include( $this->plugin['dir'] . 'includes/template_functions.php' );
             die();
         }
     }

@@ -3,7 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 
 
-Class WC_Excel_Admin_Option {
+Class WC_Excel_Admin_Option extends WC_Excel {
 
     function __construct() {
         $this->plug_header();
@@ -11,9 +11,11 @@ Class WC_Excel_Admin_Option {
         
         if(isset($_POST)) {
             foreach($_POST as $req => $rev) {
-                $this->update_all_options( plugin_slug . $req, $rev );
+                $this->update_all_options( $this->plugin['slug'] . $req, $rev );
             }
         }
+
+        add_action( 'admin_menu', array( $this, 'wc_excel_admin_menu' ) );
     }
 
     function update_all_options( $key, $value ) {
@@ -24,13 +26,13 @@ Class WC_Excel_Admin_Option {
         if(!empty($_POST))  
             return $_POST[$key];
         else
-            return get_option( plugin_slug . $key );
+            return get_option( $this->plugin['slug'] . $key );
     }
 
     function plug_header() {
-        echo '<link rel="stylesheet" href="' . plugins_url() . '/wc-excel-slip/assets/style.css" />';
-        echo '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">';
-        echo '<h2><img src="'.plugins_url() . '/wc-excel-slip/assets/admin-icon.png"> ' . __('ตั้งค่า WooCommerce Excel Slip.<sup>by iOTech</sup>', 'wc_excel_slip') . '</h2>';
+        echo '<link rel="stylesheet" href="' . $this->plugin['url'] . '/assets/style.css" />';
+        echo '<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">';
+        echo '<h2><img src="'.$this->plugin['url'] . '/assets/admin-icon.png"> ' . __('ตั้งค่า ' . $this->plugin['name'] . '<sup>by iOTech</sup>', 'wc_excel_slip') . '</h2>';
     }
 
     function getFileList($dir, $recurse=false)
@@ -77,7 +79,7 @@ Class WC_Excel_Admin_Option {
         
             <div class="form-group">
                 <label for="company_name"><?php echo __('บริษัท','wc_excel_slip');?></label>
-                <input type="text" value="<?php echo $this->get_admin_options( '_company_name' );?>" name="_company_name" id="company_name" class="form-control" placeholder="<?php echo __('ชื่อบริษัท (สำนักงานใหญ่)','wc_excel_slip');?>" required="required">
+                <input type="text" value="<?php echo $this->get_admin_options( '_company_name' );?>" name="_company_name" id="company_name" class="form-control" placeholder="<?php echo __('ชื่อบริษัท (สำนักงานใหญ่)','wc_excel_slip');?>">
             </div>
 
             <div class="form-group">
@@ -112,8 +114,8 @@ Class WC_Excel_Admin_Option {
             </div>
             <br>
             <legend><?php echo __('ตั้งค่าอื่นๆ','wc_excel_slip');?></legend>
-            <?php $template = $this->getFileList(plugin_dir . 'templates/');?>
-            <div class="form-group">
+            <?php $template = $this->getFileList($this->plugin['dir'] . 'templates/');?>
+            <div class="form-group">0
                 <label for="template"><?php echo __('รูปแบบ','wc_excel_slip');?> <span class="current_setting"><?php echo $this->get_admin_options( '_template' );?></span></label>
                 <select name="_template" id="template" class="form-control">
                     <?php for($x=0;$x<count($template);$x++): ?>
@@ -142,25 +144,25 @@ Class WC_Excel_Admin_Option {
             </div>
         <?php
     }
-}
 
-function wc_excel_admin_menu(){
+    function wc_excel_admin_menu(){
+        
+        $page_title = 'WooCommerce Excel Slip - Settings';
+        $menu_title = 'WC Excel Slip';
+        $capability = 'manage_options';
+        $menu_slug  = 'wc_excel_setting';
+        $function   = 'wc_excel_admin_page';
+        $icon_url   = $this->plugin['url'] . '/assets/admin-icon.png';
+        $position   = 30;
     
-    $page_title = 'WooCommerce Excel Slip - Settings';
-    $menu_title = 'WC Excel Slip';
-    $capability = 'manage_options';
-    $menu_slug  = 'wc_excel_setting';
-    $function   = 'wc_excel_admin_page';
-    $icon_url   = plugins_url() . '/wc-excel-slip/assets/admin-icon.png';
-    $position   = 30;
-
-    add_menu_page( $page_title,
-                    $menu_title, 
-                    $capability, 
-                    $menu_slug, 
-                    $function, 
-                    $icon_url, 
-                    $position );
+        add_menu_page( $page_title,
+                        $menu_title, 
+                        $capability, 
+                        $menu_slug, 
+                        $function, 
+                        $icon_url, 
+                        $position );
+    }
 }
 
 function wc_excel_admin_page() {
@@ -168,5 +170,3 @@ function wc_excel_admin_page() {
     do_settings_sections('plugin');
     new WC_Excel_Admin_Option;
 }
-
-add_action( 'admin_menu', 'wc_excel_admin_menu' );
