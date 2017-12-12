@@ -34,7 +34,7 @@ You can edit your own template by clone the */templates/default* folder to new f
 
 **Screenshot**
 
-![Sample slip](https://iotech.co.th/wp-content/uploads/2017/06.40.34.png)
+![Sample slip](https://iotech.co.th/wp-content/uploads/2017/06.40.34.png?cache=1)
 
 ![Sample Setting screen](https://iotech.co.th/wp-content/uploads/2017/06.41.22.png)
 
