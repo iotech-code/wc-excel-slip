@@ -1,6 +1,2 @@
-### Composer ###
-composer.phar
 /vendor/
-
-### MAC File ###
 .DS_Store
