@@ -3,6 +3,8 @@
 
 Wordpress plugin written by [In and Out Technology Company](https://iotech.co.th).
 
+[![Build Status](https://travis-ci.org/iotech-thailand/wc-excel-slip.svg?branch=development)](https://travis-ci.org/iotech-thailand/wc-excel-slip)
+
 This plugin will generate output file as .xls format.
 
 You can edit your own template by clone the */templates/default* folder to new folder and change design in *invoice.xls* file.
