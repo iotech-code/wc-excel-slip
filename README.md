@@ -39,8 +39,9 @@ You can edit your own template by clone the */templates/default* folder to new f
 ![Sample Setting screen](https://iotech.co.th/wp-content/uploads/2017/06.41.22.png)
 
 
-**Warning**
- - This plugin is require WooCommerce installed.
+**Requirements**
+ - Wordpress
+ - WooCommerce
 
 
 **Contribute**
